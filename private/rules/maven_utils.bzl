@@ -35,10 +35,15 @@ def format_dep(unpacked, indent = 8, include_version = True):
             "    <type>%s</type>\n" % unpacked.type,
         ])
 
-    if unpacked.scope and unpacked.scope != "compile":
+    if unpacked.scope:
         dependency.extend([
             whitespace,
             "    <scope>%s</scope>\n" % unpacked.scope,
+        ])
+    else:
+        dependency.extend([
+            whitespace,
+            "    <scope>compile</scope>\n",
         ])
 
     dependency.extend([
